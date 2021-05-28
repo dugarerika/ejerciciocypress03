@@ -1,0 +1,10 @@
+{
+    "baseUrl": "https://vendor.bookr.co/",
+    "testFiles": "**/*.feature",
+    "video": true,
+    "videosFolder": "cypress/videos",
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions":{
+        "configFile": "reporterOptions.json"
+    }
+}

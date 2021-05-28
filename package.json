@@ -1,0 +1,32 @@
+{
+  "name": "ejerciciocypress03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rm -rfv ./htmlReport && rm -rfv ./cypress/reports/mocha/*.json && rm -rfv ./cypress/videos/*.mp4 && rm -rfv ./cypress/reports/junit/*.xml",
+    "createHtml": "npx marge cypress/reports/mocha/*.json -f report -o htmlReport",
+    "open": "cypress open",
+    "testLogin": "npm run clean:reports && cypress run --project ./ --config integrationFolder=./cypress/integration/login --headless --browser chrome && npm run createHtml",
+    "testCustomer": "npm run clean:reports && cypress run --project ./ --config integrationFolder=./cypress/integration/customer --headless --browser chrome && npm run createHtml"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cypress-cucumber-preprocessor": "^4.0.0",
+    "cypress-cucumber-preprocessor": "^4.1.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "mocha-junit-reporter": "^2.0.0",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0"
+  },
+  "dependencies": {
+    "cypress": "^7.2.0",
+    "tsify": "^5.0.2",
+    "typescript": "^4.2.4"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}
